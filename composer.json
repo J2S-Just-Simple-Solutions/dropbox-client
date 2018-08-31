@@ -1,0 +1,23 @@
+{
+    "name": "kranack/dropbox-client",
+    "description": "Dropbox API v2 client",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damien Calesse",
+            "email": "damien.calesse@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+		"php": ">=5.4.0",
+		"ext-curl": "*",
+        "dropbox/dropbox-sdk": "1.1.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Dropboxv2\\": "src/"
+		}
+	}
+}
