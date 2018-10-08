@@ -479,7 +479,7 @@ class Client
             $httpResult = $httpClient->{strtolower($method)}($url, $type, $params);
         } catch(\Exception $e) {
             if (!$this->isSkippingLogError() || $this->getLogErrorCount() > 0) {
-                _trace($e, "[DROPBOXV2] ERROR (request on $url) : ");
+                error_log("[DROPBOXV2] ERROR (request on $url) : " . print_r($e, true));
             }
 
             throw $e;

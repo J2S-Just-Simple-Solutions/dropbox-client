@@ -6,7 +6,6 @@ use Dropboxv2\Exceptions;
 use Dropboxv2\Enums;
 use Dropboxv2\Http;
 
-use \J2SPortal\utils\PortalFileSystem;
 
 /**
  * Upload Session
