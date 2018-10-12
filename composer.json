@@ -1,12 +1,12 @@
 {
-    "name": "kranack/dropbox-client",
+    "name": "J2S/dropbox-client",
     "description": "Dropbox API v2 client",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Damien Calesse",
-            "email": "damien.calesse@gmail.com"
+            "email": "dcalesse@j2s.net"
         }
     ],
     "minimum-stability": "dev",

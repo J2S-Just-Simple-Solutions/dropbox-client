@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30d6042dc10ddf997313e03dc4141c95",
+    "content-hash": "5377d6e71d0bea039eda9a71415ad57a",
     "packages": [
         {
             "name": "dropbox/dropbox-sdk",
