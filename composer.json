@@ -1,5 +1,5 @@
 {
-    "name": "J2S/dropbox-client",
+    "name": "j2s/dropbox-client",
     "description": "Dropbox API v2 client",
     "type": "library",
     "license": "MIT",
