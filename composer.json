@@ -12,8 +12,7 @@
     "minimum-stability": "dev",
     "require": {
 		"php": ">=5.4.0",
-		"ext-curl": "*",
-        "dropbox/dropbox-sdk": "1.1.*"
+		"ext-curl": "*"
 	},
 	"autoload": {
 		"psr-4": {

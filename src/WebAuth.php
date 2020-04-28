@@ -2,7 +2,7 @@
 
 namespace Dropboxv2;
 
-use Dropbox\Security;
+use Dropboxv2\Security;
 use Dropboxv2\Exceptions\CSRFTokenException;
 use Dropboxv2\Exceptions\HttpRequestException;
 
