@@ -17,6 +17,7 @@
 	"autoload": {
 		"psr-4": {
 			"Dropboxv2\\": "src/"
-		}
+		},
+		"classmap": [ "src" ]
 	}
 }
