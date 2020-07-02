@@ -147,12 +147,12 @@ class Client
         } else {
             if (!$this->isUpload()) {
                 $this->setHeaders('Content-Type', '');
-                $this->setHeaders('Content-Length', 0);
+                //$this->setHeaders('Content-Length', 0);
             } else {
                 $this->setHeaders('Content-Type', 'application/octet-stream');
                 $this->cURLHandler->setOpt(CURLOPT_POSTFIELDS, $this->getUploadFile());
             }
-            $this->setHeaders('Dropbox-API-Arg', json_encode($params));
+            $this->setHeaders('Dropbox-API-Arg', json_encode($params, JSON_UNESCAPED_SLASHES));
         }
 
         list($res, $statusCode) = $this->cURLHandler->exec($this->httpHeaders);
