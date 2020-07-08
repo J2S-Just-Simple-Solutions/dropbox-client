@@ -176,7 +176,7 @@ class UploadSession
         $content = $this->readBytesFromFile($offset);
         $contentLength = strlen($content);
 
-        $this->httpClient->setExtraHeader("data-binary", $this->localPath, "@");
+        $this->httpClient->setExtraHeader("data-binary", basename($this->localPath), "@");
         $this->httpClient->setUploadContent($content);
         unset($content);
 

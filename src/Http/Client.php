@@ -336,9 +336,15 @@ class Client
     private function getUploadFile() {
         $index = $this->isUpload();
         if ($index !== false) {
-            $uploadFile = substr($this->httpHeaders[$index], 13);
+            $uploadFile = substr($this->httpHeaders[$index], 14, -1);
             if ($this->uploadContent === null) {
-                return file_get_contents($uploadFile);
+				$content = file_get_contents($uploadFile);
+
+				if ($content !== false) {
+					$this->httpHeaders[$index] = str_replace($uploadFile, basename($uploadFile), $this->httpHeaders[$index]);
+				}
+
+                return $content;
             } else {
                 return $this->uploadContent;
             }

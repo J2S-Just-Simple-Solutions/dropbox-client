@@ -409,7 +409,7 @@ class Client
 
         $extraHeaders = [];
         $uploadContent = null;
-        if ($dataObject->type === "file") { $extraHeaders = ['data-binary @' . $dataObject->data]; }
+        if ($dataObject->type === "file") { $extraHeaders = [ sprintf('data-binary "@%s"', $dataObject->data) ]; }
         else { $uploadContent = $dataObject->data; }
 
         return $this->_request('files/upload', [
