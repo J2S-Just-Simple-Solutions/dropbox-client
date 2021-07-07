@@ -325,7 +325,7 @@ class Client
 
         if ($localPath !== "") {
             $res = file_put_contents($localPath, $fileData);
-            if ($res === false ) {
+            if ($res === false) {
                 throw new FileException($localPath);
             }
             return $res;
@@ -333,6 +333,40 @@ class Client
 
         return $fileData;
     }
+
+	/**
+     * Télécharge un fichier depuis Dropbox au format ZIP
+     *
+     * Si un path est renseigné, on le sauvegarde dans un fichier.
+     * Sinon, on retourne directement le contenu.
+     *
+     * @param string $path Chemin (Dropbox) du fichier
+     * @param string $localPath Chemin (Local) du fichier [optional]
+     * @return int|mixed
+     * @throws FileException
+     */
+	public function downloadAsZIP($path, $localPath) {
+		if (is_dir($localPath)) {
+            throw new FileException($localPath . " is a directory");
+        }
+
+        $dirpath = pathinfo($localPath, PATHINFO_DIRNAME);
+        if (!file_exists($dirpath)) {
+            mkdir($dirpath);
+        }
+
+		$fileData = $this->_request('files/download_zip', ['path' => $path], 'file');
+
+		if ($localPath !== "") {
+            $res = file_put_contents($localPath, $fileData);
+            if ($res === false) {
+                throw new FileException($localPath);
+            }
+            return $res;
+        }
+
+        return $fileData;
+	}
 
     /*----------------------------
      *          UPLOAD
