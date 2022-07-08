@@ -180,6 +180,36 @@ class Client
         return $this->_request('files/get_metadata', ['path' => $path]);
     }
 
+	/**
+	 * Récupération du verrou d'un fichier/dossier
+	 *
+	 * @param string $path
+	 * @return mixed
+	 */
+	public function getLock($path) {
+		return $this->_request('files/get_file_lock_batch', [ 'entries' => [ (object) [ 'path' => $path ] ] ]);
+	}
+
+	/**
+	 * Verrouille un fichier/dossier
+	 *
+	 * @param string $path
+	 * @return mixed
+	 */
+	public function lock($path) {
+		return $this->_request('files/lock_file_batch', [ 'entries' => [ (object) [ 'path' => $path ] ] ]);
+	}
+
+	/**
+	 * Déverrouille un fichier/dossier
+	 *
+	 * @param string $path
+	 * @return mixed
+	 */
+	public function unlock($path) {
+		return $this->_request('files/unlock_file_batch', [ 'entries' => [ (object) [ 'path' => $path ] ] ]);
+	}
+
     /**
      * Recherche d'un fichier dans un dossier
      *
