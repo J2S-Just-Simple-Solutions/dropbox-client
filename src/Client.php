@@ -210,6 +210,45 @@ class Client
 		return $this->_request('files/unlock_file_batch', [ 'entries' => [ (object) [ 'path' => $path ] ] ]);
 	}
 
+	/**
+	 * Retourne la révision courante d'un fichier
+	 *
+	 * @param string $path
+	 * @return string|null
+	 */
+	public function getCurrentRevision($path) {
+		try {
+			$metadata = $this->getMetaData($path);
+
+			return $metadata->rev ?? null;
+		} catch (\Exception $e) {}
+
+		return null;
+	}
+
+	/**
+	 * Retourne la liste des révisions d'un fichier
+	 *
+	 * @param string $path
+	 * @param string $mode
+	 * @param integer $limit
+	 * @return mixed
+	 */
+	public function getRevisions($path, $mode = 'path', $limit = 10) {
+		return $this->_request('files/list_revisions', [ 'path' => $path, 'mode' => $mode, 'limit' => $limit ]);
+	}
+
+	/**
+	 * Restore un fichier à une révision précédente
+	 *
+	 * @param string $path
+	 * @param string $revision
+	 * @return mixed
+	 */
+	public function restore($path, $revision) {
+		return $this->_request('files/restore', [ 'path' => $path, 'rev' => $revision ]);
+	}
+
     /**
      * Recherche d'un fichier dans un dossier
      *
